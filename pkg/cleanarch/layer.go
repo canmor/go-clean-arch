@@ -1,7 +1,6 @@
 package cleanarch
 
 import (
-	"os"
 	"strings"
 )
 
@@ -44,7 +43,9 @@ func strToLayer(pkg string) Layer {
 
 func NewLayer(packagePath string) Layer {
 	pkg := strings.ToLower(packagePath)
-	parts := strings.Split(pkg, string(os.PathSeparator))
+	// os.PathSeparator is various on different OS, but package path is always '/' separated.
+	const packageSeparator = '/'
+	parts := strings.Split(pkg, string(packageSeparator))
 	for i := 0; i < len(parts); i++ {
 		layer := strToLayer(parts[len(parts)-1-i])
 		if layer != UnknownLayer {
