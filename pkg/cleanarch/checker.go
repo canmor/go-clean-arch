@@ -32,7 +32,7 @@ func (c ImportChecker) Check(path string) (err error) {
 		violated = true
 	}
 	if violated {
-		err = fmt.Errorf("Importing <%s> aka: %s from <%s>", importLayer, path, c.thisLayer)
+		err = fmt.Errorf("importing <%s> aka: %s from <%s>", importLayer, path, c.thisLayer)
 	}
 	return
 }
