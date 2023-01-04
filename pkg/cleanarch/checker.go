@@ -1,12 +1,19 @@
 package cleanarch
 
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 type ImportChecker struct {
 	thisLayer Layer
 }
 
 func NewImportChecker(path string) *ImportChecker {
+	isTestPackage := strings.HasSuffix(path, "_test")
+	if isTestPackage {
+		return nil
+	}
 	layer := NewLayer(path)
 	if layer == UnknownLayer {
 		return nil
