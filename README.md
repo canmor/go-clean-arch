@@ -9,7 +9,7 @@ An analyzer for Clean Arch dependency rules for Go.
 1. Install binary
 
     ```shell
-    go install github.com/canmor/go-clean-arch/cmd/go-clean-arch@latest
+    go install github.com/canmor/go-clean-arch/cmd/go-clean-arch@v0.0.2
     ```
 
 2. Run with `go vet` to check your repo
